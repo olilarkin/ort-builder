@@ -1,0 +1,10 @@
+venv
+onnxruntime
+.vscode/settings.json
+*.ort
+*.onnx
+model/*
+*.config
+*.pyc
+libs
+onnxruntime.xcframework
