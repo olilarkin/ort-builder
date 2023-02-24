@@ -1,27 +1,23 @@
-# ORTBuilder
+# ONNX Runtime static library builder
 
-Convert ONNX model to ORT and serialize C++ source code, generate custom slimmed ONNX Runtime static libs
+Converts an [ONNX](https://onnx.ai) model to ORT format and serializes it to C++ source code, generate custom slimmed ONNX Runtime static libs.
 
-0. Checkout ONNX Runtime `$ git clone https://github.com/microsoft/onnxruntime.git`
+The goal here is to create a flexible but tiny inference engine for use in Audio Plug-ins or Mobile apps e.g. [iPlug2 example](https://github.com/olilarkin/iPlug2OnnxRuntime).
 
-1. Create a [virtual environment](https://packaging.python.org/tutorials/installing-packages/#creating-virtual-environments) `$ python3 -m venv venv`
+The scripts here are configured to create a minimal ORT binary using only the CPU provider. If you want to experiment with GPU inference, Core ML etc, you will have to modify 
 
-2. Activate it `$ source ./venv/bin/activate`
+## Instructions:
 
-3. Install dependencies `$ pip install -r requirements.txt`
+1. Checkout ONNX Runtime `$ git clone https://github.com/microsoft/onnxruntime.git`
 
-4. Run `$ ./convert-model-to-ort.sh model.onnx`
+2. Place your model in the folder named model.onnx
 
-5. Build for apple
-   Run `$ ./build-mac.sh`
-   Run `$ ./build-ios.sh`
-   Run `$ ./build-ios-simulator.sh`
-   Run `$ ./build-xcframework.sh`
+3. Create a [virtual environment](https://packaging.python.org/tutorials/installing-packages/#creating-virtual-environments) `$ python3 -m venv venv`
 
-6. Build for win
-   Run `$ ./build-win.sh`
-   ... tbc
+4. Activate it `$ source ./venv/bin/activate`
 
-7. Build for ...
-   Run `$ ./build-win.sh`
-   ... tbc
+5. Install dependencies `$ pip install -r requirements.txt`
+
+6. Run `$ ./convert-model-to-ort.sh model.onnx`
+
+7. Build static libraries using one of the `build-xxx.sh` shell scripts
