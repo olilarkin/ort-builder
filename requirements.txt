@@ -1,4 +1,5 @@
 #tensorflow==2.8
 #tf2onnx
-onnxruntime==1.13.1
+onnxruntime==1.14.1
+onnx==1.13.1
 bin2c
