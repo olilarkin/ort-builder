@@ -6,9 +6,23 @@ setlocal
 set "CMAKE_BUILD_TYPE=MinSizeRel"
 mkdir ".\libs\win-x86_64\%CMAKE_BUILD_TYPE%"
 
+"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -format value -property catalog_productLine > tmp || exit \b
+set /p version= < tmp
+set version=%version:Dev=%
+
+"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -format value -property installationPath > tmp || exit \b
+set /p installationPath= < tmp
+
+"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -format value -property catalog_productLineVersion > tmp || exit \b
+set /p year= < tmp
+
+del tmp
+
+
+
 call onnxruntime\build.bat ^
 --config="%CMAKE_BUILD_TYPE%" ^
---cmake_generator="Visual Studio 16 2019" ^
+--cmake_generator="Visual Studio %version% %year%" ^
 --parallel ^
 --minimal_build ^
 --disable_ml_ops --disable_exceptions --disable_rtti ^
@@ -18,7 +32,7 @@ call onnxruntime\build.bat ^
 --skip_tests ^
 	|| exit \b
 
-call "%ProgramFiles(x86)%\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" x86_x64 ^
+call "%installationPath%\VC\Auxiliary\Build\vcvarsall.bat" x86_x64 ^
 	|| exit \b
 
 lib.exe /OUT:".\libs\win-x86_64\%CMAKE_BUILD_TYPE%\onnxruntime.lib" ^
