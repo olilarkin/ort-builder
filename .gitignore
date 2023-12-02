@@ -1,5 +1,4 @@
 venv
-onnxruntime
 .vscode/settings.json
 *.ort
 *.onnx
@@ -8,3 +7,5 @@ model/*
 *.pyc
 libs
 onnxruntime.xcframework
+*.a
+
