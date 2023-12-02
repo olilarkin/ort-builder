@@ -30,8 +30,10 @@ $ source ./venv/bin/activate`
 
 4. Run `$ ./convert-model-to-ort.sh model.onnx`
 This converts the .onnx file to .ort and produces a .config file which slims the onnxruntime library build in the next step.
+It also serializes the .ort format model to C++ source code, which can be used to bake the model into your app binary. If the model
+is large this might not be a great solution, and it might be better to locate the .ort file at runtime.
 
-5. Build customized onnx runtime static libraries
+6. Build customized onnx runtime static libraries
 
 ```mac
 $ ./build-mac.sh
