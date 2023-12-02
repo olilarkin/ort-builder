@@ -1,0 +1,16 @@
+diff --git a/cmake/adjust_global_compile_flags.cmake b/cmake/adjust_global_compile_flags.cmake
+index 68522a7dda..9040c9b372 100644
+--- a/cmake/adjust_global_compile_flags.cmake
++++ b/cmake/adjust_global_compile_flags.cmake
+@@ -74,10 +74,7 @@ if (onnxruntime_MINIMAL_BUILD)
+   endif()
+ 
+   if (MSVC)
+-    # turn on LTO (which adds some compiler flags and turns on LTCG) unless it's a Debug build to minimize binary size
+-    if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
+-      set(onnxruntime_ENABLE_LTO ON)
+-    endif()
++    set(onnxruntime_ENABLE_LTO OFF)
+ 
+     # undocumented internal flag to allow analysis of a minimal build binary size
+     if (ADD_DEBUG_INFO_TO_MINIMAL_BUILD)
