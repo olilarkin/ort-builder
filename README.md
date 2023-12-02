@@ -48,11 +48,10 @@ $ ./build-ios-simulator.sh
 $ ./build-xcframework.sh
 ```
 
-## Note: windows static lib builds can get very large due to the LTO/LTCG settings
-in onnxruntime. You can turn that off by applying the change in ltcg_patch_for_windows.patch to
-the onnxruntime repo.
-Due to different MSVC runtimes for Debug and Release builds, we need to build two binaries
-for windows.
+**Note:** windows static lib builds can get very large due to the LTO/LTCG settings in onnxruntime. 
+You can turn that off by applying the change in ltcg_patch_for_windows.patch to the onnxruntime repo.
+Due to different MSVC runtimes for Debug and Release builds, we need to build two binaries for windows.
+
 ```windows
 $ ./build-win.sh
 ```
