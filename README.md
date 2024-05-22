@@ -16,12 +16,14 @@ CMake v2.6+
 
 2. Create a [virtual environment](https://packaging.python.org/tutorials/installing-packages/#creating-virtual-environments) and activate it
 
-```windows (bash shell)
-$ py -3 -m venv env
+windows
+```bash
+$ py -3 -m venv venv
 $ source ./venv/Scripts/activate`
 ```
 
-```mac/linux
+mac/linux
+```bash
 $ python3 -m venv venv
 $ source ./venv/bin/activate`
 ```
