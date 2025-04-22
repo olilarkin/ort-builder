@@ -2,9 +2,9 @@
 
 Converts an [ONNX](https://onnx.ai) model to ORT format and serializes it to C++ source code, generate custom slimmed ONNX Runtime static libs & xcframework for apple platforms.
 
-The goal here is to create a flexible but tiny inference engine for a specific model for use in Audio Plug-ins or Mobile apps e.g. [iPlug2 example](https://github.com/olilarkin/iPlug2OnnxRuntime).
+The goal here is to create a flexible but tiny inference engine for a specific model e.g. [iPlug2 example](https://github.com/olilarkin/iPlug2OnnxRuntime).
 
-*NOTE: due to risk of ODR violations, global/static variable conflicts, and dependency symbol clashes with DAW Hosts that use ORT themselves - be careful if you use this in an audio plugin!*
+*NOTE: due to risk of ODR violations, global/static variable conflicts, and dependency symbol clashes with DAW Hosts that use ORT themselves - think hard before you use this in an audio plugin!*
 
 The scripts here are configured to create a minimal ORT binary using only the CPU provider. If you want to experiment with GPU inference, Core ML etc, you will have to modify.
 
