@@ -17,7 +17,7 @@ build_arch() {
   --disable_ml_ops --disable_rtti \
   --include_ops_by_config "$ONNX_CONFIG" \
   --enable_reduced_operator_type_support \
-  --cmake_extra_defines CMAKE_OSX_ARCHITECTURES="${ARCH}" \
+  --cmake_extra_defines CMAKE_OSX_ARCHITECTURES="${ARCH}" CMAKE_POLICY_VERSION_MINIMUM=3.5 \
   --skip_tests
 
   BUILD_DIR=./onnxruntime/build/macOS_${ARCH}/${CMAKE_BUILD_TYPE}
